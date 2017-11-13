@@ -1,0 +1,361 @@
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     1             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+                                                                                                                                     
+  KRELCNSF CONCAT#(29)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+    1696                INCLUDE KTOTZOT                                                                                              
+    1854                         KTOTZOT                                                                                             
+    4569                    FROM KTOTZOT                                                                                             
+    4585                  DISPLAY 'ERROR AL CONS KTOTZOT   ' SQLCODE                                                                 
+                                                                                                                                     
+  KRELMHUR CONCAT#(29)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+    1403                INCLUDE KTOTZOT                                                                                              
+    1559                         KTOTZOT                                                                                             
+    3285                    FROM KTOTZOT                                                                                             
+    3301                  DISPLAY 'ERROR AL CONS KTOTZOT   ' SQLCODE                                                                 
+                                                                                                                                     
+  KRELMINC CONCAT#(29)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+    1546                INCLUDE KTOTZOT                                                                                              
+    1701                         KTOTZOT                                                                                             
+    6073                    FROM KTOTZOT                                                                                             
+    6089        D         DISPLAY 'ERROR AL CONS KTOTZOT   ' SQLCODE                                                                 
+                                                                                                                                     
+  KRELMRTE CONCAT#(29)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+     524             EXEC SQL INCLUDE KTOTZOT END-EXEC.                                                                              
+    1701                     FROM KTOTZOT                                                                                            
+                                                                                                                                     
+  KTOLMETE CONCAT#(37)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+     258        * TABLA  KTOTZOT                                                                                                     
+     260                 INCLUDE KTOTZOT                                                                                             
+     464        * VARIABLES PARA TABLA INTERNA KTOTZOT                                                                               
+     655         01 TABLAS-KTOTZOT.                                                                                                  
+     656            05  WF-T-KTOTZOT  OCCURS 100 TIMES  INDEXED BY WF-IND2.                                                          
+     683             05  WC-TABLA-KTOTZOT          PIC X(7) VALUE "KTOTZOT".                                                         
+     697             05  WC-KTOTZOTC1              PIC X(8)  VALUE "KTOTZOT ".                                                       
+     863             05  SEM-TAB-KTOTZOT     PIC X VALUE "N".                                                                        
+     871             05  SEM-KTOTZOTC1       PIC X VALUE "N".                                                                        
+     872                 88  SEM-KTOTZOTC1-ABIERTO               VALUE "Y".                                                          
+     873                 88  SEM-KTOTZOTC1-CERRADO               VALUE "N".                                                          
+    1248             PERFORM 1700-LLENAR-KTOTZOT                                                                                     
+    1249                THRU 1700-LLENAR-KTOTZOT-EXIT.                                                                               
+    1297             INITIALIZE WF-T-KTOTZOT(WF-CONT03)                                                                              
+    1521        * -- CURSOR A LA KTOTZOT                                                                                             
+    1523                DECLARE KTOTZOTC1 CURSOR WITH HOLD FOR                                                                       
+    1528                   FROM KTOTZOT                                                                                              
+    1871        * 1700-LLENAR-KTOTZOT                                          *                                                     
+    1878         1700-LLENAR-KTOTZOT.                                                                                                
+    1879             MOVE "1700-LLENAR-KTOTZOT"  TO CDPARRAF OF KAELCWEZ.                                                            
+    1880             PERFORM 1700-OPEN-KTOTZOTC1                                                                                     
+    1881                THRU 1700-OPEN-KTOTZOTC1-EXIT.                                                                               
+    1883             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     2             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+    1884                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    1886             PERFORM 1720-GUARDA-KTOTZOT                                                                                     
+    1887                THRU 1720-GUARDA-KTOTZOT-EXIT                                                                                
+    1890             PERFORM 1730-CLOSE-KTOTZOTC1                                                                                    
+    1891                THRU 1730-CLOSE-KTOTZOTC1-EXIT.                                                                              
+    1893         1700-LLENAR-KTOTZOT-EXIT.                                                                                           
+    1897        * 1700-OPEN-KTOTZOTC1                                           *                                                    
+    1899         1700-OPEN-KTOTZOTC1.                                                                                                
+    1901             MOVE "1700-OPEN-KTOTZOTC1"      TO CDPARRAF OF KAELCWEZ.                                                        
+    1904                 OPEN KTOTZOTC1                                                                                              
+    1908                SET SEM-KTOTZOTC1-ABIERTO TO TRUE                                                                            
+    1915                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    1921         1700-OPEN-KTOTZOTC1-EXIT.                                                                                           
+    1925        * 1710-FETCH-KTOTZOTC1                                          *                                                    
+    1927         1710-FETCH-KTOTZOTC1.                                                                                               
+    1929             MOVE "1710-FETCH-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    1931             INITIALIZE KTOTZOT.                                                                                             
+    1934                 FETCH KTOTZOTC1                                                                                             
+    1935                  INTO :KTOTZOT.CDESDOLB,                                                                                    
+    1936                       :KTOTZOT.DSESTADO,                                                                                    
+    1937                       :KTOTZOT.CDZONSIS,                                                                                    
+    1938                       :KTOTZOT.CDZOCRES                                                                                     
+    1950                 MOVE WC-KTOTZOTC1               TO DSARGU2                                                                  
+    1956         1710-FETCH-KTOTZOTC1-EXIT.                                                                                          
+    1960        * 1720-GUARDA-KTOTZOT                                          *                                                     
+    1962         1720-GUARDA-KTOTZOT.                                                                                                
+    1964             MOVE "1720-GUARDA-KTOTZOT"    TO CDPARRAF OF KAELCWEZ.                                                          
+    1968             MOVE  CDESDOLB  OF  KTOTZOT                                                                                     
+    1969                             TO  WF-CDESDOLB OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1971             MOVE  DSESTADO  OF  KTOTZOT                                                                                     
+    1972                             TO  WF-DSESTADO OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1974             MOVE  CDZONSIS  OF  KTOTZOT                                                                                     
+    1975                             TO  WF-CDZONSIS OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1977             MOVE  CDZOCRES  OF  KTOTZOT                                                                                     
+    1978                             TO  WF-CDZOCRES OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1980             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+    1981                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    1983         1720-GUARDA-KTOTZOT-EXIT.                                                                                           
+    1987        * 1730-CLOSE-KTOTZOTC1.                                         *                                                    
+    1989         1730-CLOSE-KTOTZOTC1.                                                                                               
+    1991             MOVE "1730-CLOSE-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    1994                 CLOSE KTOTZOTC1                                                                                             
+    1998                SET SEM-KTOTZOTC1-CERRADO TO TRUE                                                                            
+    2004                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    2010         1730-CLOSE-KTOTZOTC1-EXIT.                                                                                          
+    3315                      PERFORM 5560-BUSQUEDA-KTOTZOT                                                                          
+    3316                         THRU 5560-BUSQUEDA-KTOTZOT-EXIT                                                                     
+    3464        * 5560-BUSQUEDA-KTOTZOT                                         *                                                    
+    3466         5560-BUSQUEDA-KTOTZOT.                                                                                              
+    3468             MOVE "5560-BUSQUEDA-KTOTZOT" TO CDPARRAF OF KAELCWEZ.                                                           
+    3471             SEARCH WF-T-KTOTZOT                                                                                             
+    3476                                = WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                       
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     3             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+    3478                                = WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                       
+    3480                   MOVE WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3482                   MOVE WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3484                   MOVE WF-CDZOCRES OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3490         5560-BUSQUEDA-KTOTZOT-EXIT.                                                                                         
+                                                                                                                                     
+  KTOLMETI CONCAT#(37)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+     436        * TABLA  KTOTZOT                                                                                                     
+     438                 INCLUDE KTOTZOT                                                                                             
+     642        * VARIABLES PARA TABLA INTERNA KTOTZOT                                                                               
+     833         01 TABLAS-KTOTZOT.                                                                                                  
+     834            05  WF-T-KTOTZOT  OCCURS 100 TIMES  INDEXED BY WF-IND2.                                                          
+     861             05  WC-TABLA-KTOTZOT          PIC X(7) VALUE "KTOTZOT".                                                         
+     875             05  WC-KTOTZOTC1              PIC X(8)  VALUE "KTOTZOT ".                                                       
+    1041             05  SEM-TAB-KTOTZOT     PIC X VALUE "N".                                                                        
+    1049             05  SEM-KTOTZOTC1       PIC X VALUE "N".                                                                        
+    1050                 88  SEM-KTOTZOTC1-ABIERTO               VALUE "Y".                                                          
+    1051                 88  SEM-KTOTZOTC1-CERRADO               VALUE "N".                                                          
+    1425             PERFORM 1700-LLENAR-KTOTZOT                                                                                     
+    1426                THRU 1700-LLENAR-KTOTZOT-EXIT.                                                                               
+    1473             INITIALIZE WF-T-KTOTZOT(WF-CONT03)                                                                              
+    1697        * -- CURSOR A LA KTOTZOT                                                                                             
+    1699                DECLARE KTOTZOTC1 CURSOR WITH HOLD FOR                                                                       
+    1704                   FROM KTOTZOT                                                                                              
+    2041        * 1700-LLENAR-KTOTZOT                                          *                                                     
+    2048         1700-LLENAR-KTOTZOT.                                                                                                
+    2049             MOVE "1700-LLENAR-KTOTZOT"  TO CDPARRAF OF KAELCWEZ.                                                            
+    2050             PERFORM 1700-OPEN-KTOTZOTC1                                                                                     
+    2051                THRU 1700-OPEN-KTOTZOTC1-EXIT.                                                                               
+    2053             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+    2054                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    2056             PERFORM 1720-GUARDA-KTOTZOT                                                                                     
+    2057                THRU 1720-GUARDA-KTOTZOT-EXIT                                                                                
+    2060             PERFORM 1730-CLOSE-KTOTZOTC1                                                                                    
+    2061                THRU 1730-CLOSE-KTOTZOTC1-EXIT.                                                                              
+    2063         1700-LLENAR-KTOTZOT-EXIT.                                                                                           
+    2067        * 1700-OPEN-KTOTZOTC1                                           *                                                    
+    2069         1700-OPEN-KTOTZOTC1.                                                                                                
+    2071             MOVE "1700-OPEN-KTOTZOTC1"      TO CDPARRAF OF KAELCWEZ.                                                        
+    2074                 OPEN KTOTZOTC1                                                                                              
+    2078                SET SEM-KTOTZOTC1-ABIERTO TO TRUE                                                                            
+    2085                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    2091         1700-OPEN-KTOTZOTC1-EXIT.                                                                                           
+    2095        * 1710-FETCH-KTOTZOTC1                                          *                                                    
+    2097         1710-FETCH-KTOTZOTC1.                                                                                               
+    2099             MOVE "1710-FETCH-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    2101             INITIALIZE KTOTZOT.                                                                                             
+    2104                 FETCH KTOTZOTC1                                                                                             
+    2105                  INTO :KTOTZOT.CDESDOLB,                                                                                    
+    2106                       :KTOTZOT.DSESTADO,                                                                                    
+    2107                       :KTOTZOT.CDZONSIS,                                                                                    
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     4             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+    2108                       :KTOTZOT.CDZOCRES                                                                                     
+    2120                 MOVE WC-KTOTZOTC1               TO DSARGU2                                                                  
+    2126         1710-FETCH-KTOTZOTC1-EXIT.                                                                                          
+    2130        * 1720-GUARDA-KTOTZOT                                          *                                                     
+    2132         1720-GUARDA-KTOTZOT.                                                                                                
+    2134             MOVE "1720-GUARDA-KTOTZOT"    TO CDPARRAF OF KAELCWEZ.                                                          
+    2138             MOVE  CDESDOLB  OF  KTOTZOT                                                                                     
+    2139                             TO  WF-CDESDOLB OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    2141             MOVE  DSESTADO  OF  KTOTZOT                                                                                     
+    2142                             TO  WF-DSESTADO OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    2144             MOVE  CDZONSIS  OF  KTOTZOT                                                                                     
+    2145                             TO  WF-CDZONSIS OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    2147             MOVE  CDZOCRES  OF  KTOTZOT                                                                                     
+    2148                             TO  WF-CDZOCRES OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    2150             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+    2151                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    2153         1720-GUARDA-KTOTZOT-EXIT.                                                                                           
+    2157        * 1730-CLOSE-KTOTZOTC1.                                         *                                                    
+    2159         1730-CLOSE-KTOTZOTC1.                                                                                               
+    2161             MOVE "1730-CLOSE-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    2164                 CLOSE KTOTZOTC1                                                                                             
+    2168                SET SEM-KTOTZOTC1-CERRADO TO TRUE                                                                            
+    2174                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    2180         1730-CLOSE-KTOTZOTC1-EXIT.                                                                                          
+    3599                      PERFORM 5560-BUSQUEDA-KTOTZOT                                                                          
+    3600                         THRU 5560-BUSQUEDA-KTOTZOT-EXIT                                                                     
+    3748        * 5560-BUSQUEDA-KTOTZOT                                         *                                                    
+    3750         5560-BUSQUEDA-KTOTZOT.                                                                                              
+    3752             MOVE "5560-BUSQUEDA-KTOTZOT" TO CDPARRAF OF KAELCWEZ.                                                           
+    3755             SEARCH WF-T-KTOTZOT                                                                                             
+    3760                                = WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                       
+    3762                                = WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                       
+    3764                   MOVE WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3766                   MOVE WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3768                   MOVE WF-CDZOCRES OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3774         5560-BUSQUEDA-KTOTZOT-EXIT.                                                                                         
+                                                                                                                                     
+  KTOLMEUE CONCAT#(37)      ----------- STRING(S) FOUND -------------------                                                          
+                                                                                                                                     
+     253        * TABLA  KTOTZOT                                                                                                     
+     255                 INCLUDE KTOTZOT                                                                                             
+     459        * VARIABLES PARA TABLA INTERNA KTOTZOT                                                                               
+     650         01 TABLAS-KTOTZOT.                                                                                                  
+     651            05  WF-T-KTOTZOT  OCCURS 100 TIMES  INDEXED BY WF-IND2.                                                          
+     678             05  WC-TABLA-KTOTZOT          PIC X(7) VALUE "KTOTZOT".                                                         
+     692             05  WC-KTOTZOTC1              PIC X(8)  VALUE "KTOTZOT ".                                                       
+     858             05  SEM-TAB-KTOTZOT     PIC X VALUE "N".                                                                        
+     866             05  SEM-KTOTZOTC1       PIC X VALUE "N".                                                                        
+     867                 88  SEM-KTOTZOTC1-ABIERTO               VALUE "Y".                                                          
+     868                 88  SEM-KTOTZOTC1-CERRADO               VALUE "N".                                                          
+    1243             PERFORM 1700-LLENAR-KTOTZOT                                                                                     
+    1244                THRU 1700-LLENAR-KTOTZOT-EXIT.                                                                               
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     5             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+    1291             INITIALIZE WF-T-KTOTZOT(WF-CONT03)                                                                              
+    1515        * -- CURSOR A LA KTOTZOT                                                                                             
+    1517                DECLARE KTOTZOTC1 CURSOR WITH HOLD FOR                                                                       
+    1522                   FROM KTOTZOT                                                                                              
+    1861        * 1700-LLENAR-KTOTZOT                                          *                                                     
+    1868         1700-LLENAR-KTOTZOT.                                                                                                
+    1869             MOVE "1700-LLENAR-KTOTZOT"  TO CDPARRAF OF KAELCWEZ.                                                            
+    1870             PERFORM 1700-OPEN-KTOTZOTC1                                                                                     
+    1871                THRU 1700-OPEN-KTOTZOTC1-EXIT.                                                                               
+    1873             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+    1874                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    1876             PERFORM 1720-GUARDA-KTOTZOT                                                                                     
+    1877                THRU 1720-GUARDA-KTOTZOT-EXIT                                                                                
+    1880             PERFORM 1730-CLOSE-KTOTZOTC1                                                                                    
+    1881                THRU 1730-CLOSE-KTOTZOTC1-EXIT.                                                                              
+    1883         1700-LLENAR-KTOTZOT-EXIT.                                                                                           
+    1887        * 1700-OPEN-KTOTZOTC1                                           *                                                    
+    1889         1700-OPEN-KTOTZOTC1.                                                                                                
+    1891             MOVE "1700-OPEN-KTOTZOTC1"      TO CDPARRAF OF KAELCWEZ.                                                        
+    1894                 OPEN KTOTZOTC1                                                                                              
+    1898                SET SEM-KTOTZOTC1-ABIERTO TO TRUE                                                                            
+    1905                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    1911         1700-OPEN-KTOTZOTC1-EXIT.                                                                                           
+    1915        * 1710-FETCH-KTOTZOTC1                                          *                                                    
+    1917         1710-FETCH-KTOTZOTC1.                                                                                               
+    1919             MOVE "1710-FETCH-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    1921             INITIALIZE KTOTZOT.                                                                                             
+    1924                 FETCH KTOTZOTC1                                                                                             
+    1925                  INTO :KTOTZOT.CDESDOLB,                                                                                    
+    1926                       :KTOTZOT.DSESTADO,                                                                                    
+    1927                       :KTOTZOT.CDZONSIS,                                                                                    
+    1928                       :KTOTZOT.CDZOCRES                                                                                     
+    1940                 MOVE WC-KTOTZOTC1               TO DSARGU2                                                                  
+    1946         1710-FETCH-KTOTZOTC1-EXIT.                                                                                          
+    1950        * 1720-GUARDA-KTOTZOT                                          *                                                     
+    1952         1720-GUARDA-KTOTZOT.                                                                                                
+    1954             MOVE "1720-GUARDA-KTOTZOT"    TO CDPARRAF OF KAELCWEZ.                                                          
+    1958             MOVE  CDESDOLB  OF  KTOTZOT                                                                                     
+    1959                             TO  WF-CDESDOLB OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1961             MOVE  DSESTADO  OF  KTOTZOT                                                                                     
+    1962                             TO  WF-DSESTADO OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1964             MOVE  CDZONSIS  OF  KTOTZOT                                                                                     
+    1965                             TO  WF-CDZONSIS OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1967             MOVE  CDZOCRES  OF  KTOTZOT                                                                                     
+    1968                             TO  WF-CDZOCRES OF WF-T-KTOTZOT(WF-CONT03).                                                     
+    1970             PERFORM 1710-FETCH-KTOTZOTC1                                                                                    
+    1971                THRU 1710-FETCH-KTOTZOTC1-EXIT.                                                                              
+    1973         1720-GUARDA-KTOTZOT-EXIT.                                                                                           
+    1977        * 1730-CLOSE-KTOTZOTC1.                                         *                                                    
+    1979         1730-CLOSE-KTOTZOTC1.                                                                                               
+    1981             MOVE "1730-CLOSE-KTOTZOTC1"    TO CDPARRAF OF KAELCWEZ.                                                         
+    1984                 CLOSE KTOTZOTC1                                                                                             
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     6             
+  LINE-#  SOURCE SECTION                    SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+    1988                SET SEM-KTOTZOTC1-CERRADO TO TRUE                                                                            
+    1994                 MOVE WC-KTOTZOTC1         TO DSARGU2                                                                        
+    2000         1730-CLOSE-KTOTZOTC1-EXIT.                                                                                          
+    3307                      PERFORM 5560-BUSQUEDA-KTOTZOT                                                                          
+    3308                         THRU 5560-BUSQUEDA-KTOTZOT-EXIT                                                                     
+    3456        * 5560-BUSQUEDA-KTOTZOT                                         *                                                    
+    3458         5560-BUSQUEDA-KTOTZOT.                                                                                              
+    3460             MOVE "5560-BUSQUEDA-KTOTZOT" TO CDPARRAF OF KAELCWEZ.                                                           
+    3463             SEARCH WF-T-KTOTZOT                                                                                             
+    3468                                = WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                       
+    3470                                = WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                       
+    3472                   MOVE WF-CDESDOLB OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3474                   MOVE WF-CDZONSIS OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3476                   MOVE WF-CDZOCRES OF WF-T-KTOTZOT(WF-IND2)                                                                 
+    3482         5560-BUSQUEDA-KTOTZOT-EXIT.                                                                                         
+                                                                                                                                     
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     7             
+      SEARCH-FOR SUMMARY SECTION            SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+ LINES-FOUND  LINES-PROC  MEMBERS-W/LNS  MEMBERS-WO/LNS  COMPARE-COLS  LONGEST-LINE                                                  
+       254      ?067229            7           9318           1:80           80                                                      
+                                                                                                                                     
+ PROCESS OPTIONS USED: ANYC                                                                                                          
+                                                                                                                                     
+ THE FOLLOWING PROCESS STATEMENTS (USING COLUMNS 1:72) WERE PROCESSED:                                                               
+    SRCHFOR  'KTOTZOT'                                                                                                               
+                                                                                                                                     
+ THE FOLLOWING "SRH" FILE CONCATENATED DATA SETS WERE SPECIFIED:                                                                     
+    (1) PAPEP.BTCH.FUENTES                                                                                                           
+    (2) PASGP.BTCH.FUENTES                                                                                                           
+    (3) PASSP.BTCH.FUENTES                                                                                                           
+    (4) PIMKP.BTCH.FUENTES                                                                                                           
+    (5) PASSP.ONLN.FUENTES                                                                                                           
+    (6) PATCP.BTCH.FUENTES                                                                                                           
+    (7) PATCP.ONLN.FUENTES                                                                                                           
+    (8) PGDWP.BTCH.FUENTES                                                                                                           
+    (9) PIATP.BTCH.FUENTES                                                                                                           
+   (10) PIDIP.BTCH.FUENTES                                                                                                           
+   (11) PIDIP.ONLN.FUENTES                                                                                                           
+   (12) PIMBP.BTCH.FUENTES                                                                                                           
+   (13) PIMBP.ONLN.FUENTES                                                                                                           
+   (14) PISMP.BTCH.FUENTES                                                                                                           
+   (15) PNACP.BTCH.FUENTES                                                                                                           
+   (16) PNACP.ONLN.FUENTES                                                                                                           
+   (17) PNCAP.BTCH.FUENTES                                                                                                           
+   (18) PNCEP.BTCH.FUENTES                                                                                                           
+   (19) PNCFP.BTCH.FUENTES                                                                                                           
+   (20) PNCGP.BTCH.FUENTES                                                                                                           
+   (21) PNCIP.BTCH.FUENTES                                                                                                           
+   (22) PNCIP.ONLN.FUENTES                                                                                                           
+   (23) PNCSP.BTCH.FUENTES                                                                                                           
+   (24) PNCTP.BTCH.FUENTES                                                                                                           
+   (25) PNCVP.BTCH.FUENTES                                                                                                           
+   (26) PNCVP.ONLN.FUENTES                                                                                                           
+   (27) PNRBP.BTCH.FUENTES                                                                                                           
+   (28) PNRBP.ONLN.FUENTES                                                                                                           
+   (29) PNREP.BTCH.FUENTES                                                                                                           
+   (30) PNSIP.BTCH.FUENTES                                                                                                           
+   (31) PNSVP.BTCH.FUENTES                                                                                                           
+   (32) PNTPP.BTCH.FUENTES                                                                                                           
+   (33) PNTPP.ONLN.FUENTES                                                                                                           
+   (34) PRCDP.BTCH.FUENTES                                                                                                           
+   (35) PRCDP.ONLN.FUENTES                                                                                                           
+   (36) PSFIP.BTCH.FUENTES                                                                                                           
+   (37) PSTOP.BTCH.FUENTES                                                                                                           
+   (38) PXAEP.BTCH.FUENTES                                                                                                           
+   (39) PXAEP.ONLN.FUENTES                                                                                                           
+   (40) PXAHP.BTCH.FUENTES                                                                                                           
+   (41) PXAHP.ONLN.FUENTES                                                                                                           
+   (42) PXAOP.BTCH.FUENTES                                                                                                           
+   (43) PXBDP.BTCH.FUENTES                                                                                                           
+1  ISRSUPC   -   MVS/PDF FILE/LINE/WORD/BYTE/SFOR COMPARE UTILITY- ISPF FOR z/OS         2017/11/09  12.59    PAGE     8             
+      SEARCH-FOR SUMMARY SECTION            SRCH DSN: PXSTP.ONLN.FUENTES                                                             
+                                                                                                                                     
+   (44) PXCCP.BTCH.FUENTES                                                                                                           
+   (45) PXMAP.BTCH.FUENTES                                                                                                           
+   (46) PXMGP.BTCH.FUENTES                                                                                                           
+   (47) PXMGP.ONLN.FUENTES                                                                                                           
+   (48) PXSPP.BTCH.FUENTES                                                                                                           
+   (49) PXSPP.ONLN.FUENTES                                                                                                           
+   (50) PXSTP.BTCH.FUENTES                                                                                                           
+   (51) PXSTP.ONLN.FUENTES                                                                                                           
+                                                                                                                                     
