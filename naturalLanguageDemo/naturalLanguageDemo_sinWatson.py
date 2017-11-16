@@ -3,27 +3,21 @@ import os.path
 
 inicio = "----------- STRING(S) FOUND -------------------"
 
-archivo = Tkinter.askopenfile(initialdir="C:/Users/mainUser/PycharmProjects/naturalLanguageDemo", title="Archivos TXT")
+archivo = Tkinter.askopenfilename(initialdir="C:/Users/mainUser/PycharmProjects/naturalLanguageDemo", title="Archivos TXT")
+archivoNuevo = "C:/Users/mainUser/Desktop/laYessenia/" + "Chido-" + os.path.basename(str(archivo))
 
-if archivo is None:
-    print("No seleccionaste archivo")
+archivos = open(archivo, "r")
+archivoNuevos = open(archivoNuevo, "w+")
 
-#archivoNew = 'C:/Users/mainUser/Desktop/archivosLaYessenia/'
-archivoNuevo = open("archivoNuevo.txt", "w")
-
-print(archivo)
-
-for linea in archivo:
+for linea in archivos:
     if inicio in linea:
         tablaTitulo = linea[2:10]
         print(tablaTitulo)
-        archivoNuevo.write("\n")
-        archivoNuevo.write(tablaTitulo)
+        archivoNuevos.write("\n")
+        archivoNuevos.write(tablaTitulo + " ")
 
     for palabra in linea.split():
         if palabra == "FROM" or palabra == "MOVE" or palabra == "PIC":
-            print(".")
-            archivoNuevo.write(".")
-
-archivo.close()
-archivoNuevo.close()
+            archivoNuevos.write(".")
+archivos.close()
+archivoNuevos.close()
